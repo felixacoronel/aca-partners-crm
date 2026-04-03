@@ -1,0 +1,2 @@
+-- ACA Partners CRM Schema
+CREATE TABLE IF NOT EXISTS profiles (id UUID REFERENCES auth.users(id) ON DELETE CASCADE PRIMARY KEY, name TEXT NOT NULL, email TEXT, phone TEXT, role TEXT NOT NULL DEFAULT 'setter' CHECK (role IN ('master', 'setter')), notes TEXT, active BOOLEAN DEGAULT true, created_at TIMESTAMPTZ DEFAULT NOW(), updated_at TIMESTAMPTz DEFAULT NOW());
